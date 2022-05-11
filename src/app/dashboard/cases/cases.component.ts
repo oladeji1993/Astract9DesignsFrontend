@@ -17,6 +17,7 @@ export class CasesComponent implements OnInit {
   createModal = false
   createForm!: FormGroup;
   complaints: any = [];
+  Rawcomplaints: any = [];
   loggedInUser: any
 
   constructor(
@@ -38,8 +39,13 @@ export class CasesComponent implements OnInit {
 
   getCases(){
     this.complaintService.getComplaints().subscribe((data:any) => {
-      this.complaints = data;
-      console.log(this.complaints);
+      this.Rawcomplaints = data;
+      let user = localStorage.getItem('user');
+      for(let i = 0; i < this.Rawcomplaints.length; i++){
+        if(this.Rawcomplaints[i].createdBy === user){
+          this.complaints.push(this.Rawcomplaints[i])
+        }
+      }
       this.loader = false;
 
     })

@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
     }else{
       this.spinner.show()
       this.auth.loginUser(this.signinForm.value).subscribe((data:any)=>{
-        console.log(data)
         localStorage.setItem("user", data.data)
         localStorage.setItem("token", data.token)
         localStorage.setItem("role", data.role)
