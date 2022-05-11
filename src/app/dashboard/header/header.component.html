@@ -1,0 +1,57 @@
+<div class="nav white lighten-4 top-nav mr-1" id="nav-header">
+    <div (click)="sideBar()" class="toggler"><i class="fas fa-bars"></i></div>
+    <div class="h-container" style="display:flex; justify-content: space-evenly;">
+    </div>
+
+
+
+
+    <div class="nav-item" dropdown>
+        <a dropdownToggle mdbWavesEffect class="nav-link active" mdbWavesEffect>
+            Welcome</a> 
+        <div class="user">{{loggedInUser}}</div>
+    </div>
+    
+</div>
+
+
+<div class="sidebar">
+    <div class="toggler-small">
+        <div (click)="removeSideBar()" class="toggler"><i class="fas fa-bars"></i></div>
+    </div>
+    <div>
+        <div class="logo">
+            <img src="assets/logo.jpg" alt="logo">
+            <!-- <a class="navbar-brand" href="#" id="logo">KP <span>Initiatives</span></a> -->
+        </div>
+        <div class="mt-5">
+            <div mat-list-item [routerLink]="['/Dashboard/home']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+                <i style="color:#fff; padding-right:10px" class="fas fa-tachometer-alt"></i>
+                <a style="text-decoration: none; color:#fff; line-height: 1; font-size: 14px;cursor:pointer">Dashboard</a>
+            </div>
+            <div *ngIf="showCSO" mat-list-item [routerLink]="['/Dashboard/cases']" routerLinkActive="is-active"  style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+                <i style="color:#fff; padding-right:10px" class="fas fa-people-arrows"></i>
+                <a style="text-decoration: none; color:#fff; font-size: 14px;cursor:pointer">Cases</a>
+            </div>
+    
+            <div *ngIf="showSupervisor" mat-list-item [routerLink]="['/Dashboard/submitted-cases']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+                <i style="color:#fff; padding-right:10px" class="far fa-clipboard"></i>
+                <a style="text-decoration: none; color:#fff; font-size: 14px;">Submitted Cases</a>
+            </div>
+    
+            <div *ngIf="showAdmin"  [routerLink]="['/Dashboard/register']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+                <i style="color:#fff; padding-right:10px" class="fas fa-money-bill-wave"></i>
+                <a style="text-decoration: none; color:#fff; font-size: 14px;">Register User</a>
+            </div>
+            <div *ngIf="showAdmin" [routerLink]="['/Dashboard/all-cases']" routerLinkActive="is-active" style="padding-top: 13px; padding-bottom: 13px; cursor:pointer;  padding-left:40px;" class="menu">
+                <i style="color:#fff; padding-right:10px" class="fas fa-cubes"></i>
+                <a style="text-decoration: none; color:#fff; font-size: 14px;">All cases</a>
+            </div>
+    
+            <div style="padding-top: 13px; padding-bottom: 13px; padding-left:40px;cursor:pointer" class="menu">
+                <i style="color:#fff; padding-right:10px" class="fas fa-sign-out-alt"></i>
+                <a (click)="logOut()" style="text-decoration: none; color:#fff; font-size: 14px;cursor:pointer">Logout</a>
+            </div>
+        </div>
+        </div>
+</div>

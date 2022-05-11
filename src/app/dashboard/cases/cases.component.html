@@ -1,0 +1,95 @@
+<div class="content-container">
+    <div class="card">
+        <h5 class="card-header">Complaints</h5>
+        <div class="card-body">
+        <div class="Action-btn">
+            <div>
+                <button class="add_complaint" (click)="createComplaint()">Create Complaint</button>
+            </div>
+        </div>
+    <div class="mt-2">  
+        <div class="recent-grid" >
+            <div class="projects">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead style="background: #1e3b27; color:white; font-size:15px;padding:10px;">
+                                    <tr style="padding:30px">
+                                        <td>Date</td>
+                                        <td>Complain</td>    
+                                        <td>Description</td>
+                                        <td>Status</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let complaint of complaints | paginate : {itemsPerPage:5, currentPage:p} index as i">
+                                        <td>{{complaint.dateCreated | date: 'dd/MM/yyyy'}}</td>
+                                        <td>{{complaint.complain}}</td>
+                                        <td>{{complaint.complain_description}}</td>
+                                        <td>{{complaint.status}}</td>
+                                    </tr>
+                                </tbody>
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </table>
+                </div>
+                <div>
+                    <ngx-skeleton-loader   [theme]="{'height.px': 50}" count="10" appearance="line" *ngIf="loader"></ngx-skeleton-loader>
+                </div>
+            </div>
+        </div> 
+    </div>
+    </div>
+</div>
+</div>
+
+<!-- modal -->
+
+<div *ngIf="createModal">
+    <div class="modal-mask">
+      <div class="modal-wrapper">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="header-title">
+                <div>Confirm Action</div>
+                <div class="close-modal" aria-hidden="true" (click)="closeModal()">
+                  &times;
+                </div>
+              </div>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <form [formGroup]="createForm" (ngSubmit)="addComplaint()">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card-body">
+                                    <label>Complain</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" formControlName="complain" placeholder="complain" aria-describedby="basic-addon1" [ngClass]="{ 'is-invalid': submitted &&  createForm.get('complain')?.invalid}">
+                                        <div *ngIf="submitted && createForm.get('complain')?.invalid" class="invalid-feedback">
+                                            <div  *ngIf="createForm.get('complain')?.hasError('required')">Complaint is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                
+                            <div class="col-md-12" id="textarea">
+                                <label class="mt-1">Complain_description</label>
+                                <div class="input-group mb-3">
+                                    <textarea rows="4" cols="55" [ngClass]="{ 'is-invalid': submitted &&  createForm.get('complain_description')?.invalid}" formControlName="complain_description" placeholder="complain_description"></textarea>
+                                    <div *ngIf="submitted && createForm.get('complain_description')?.invalid" class="invalid-feedback">
+                                        <div  *ngIf="createForm.get('complain_description')?.hasError('required')">Complain_description is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pay-btn">
+                            <button type="submit" class="btn btn-success">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

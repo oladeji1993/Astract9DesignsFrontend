@@ -1,0 +1,40 @@
+<div class="content-container">
+    <div class="card">
+        <h5 class="card-header">Complaints</h5>
+        <div class="card-body">
+    <div class="mt-2">  
+        <div class="recent-grid" >
+            <div class="projects">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead style="background: #1e3b27; color:white; font-size:15px;padding:10px;">
+                                    <tr style="padding:30px">
+                                        <td>Date</td>
+                                        <td>Complain</td>    
+                                        <td>Description</td>
+                                        <td>Status</td>
+                                        <td>CreatedBy</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let complaint of complaints | paginate : {itemsPerPage:5, currentPage:p} index as i">
+                                        <td>{{complaint.dateCreated | date: 'dd/MM/yyyy'}}</td>
+                                        <td>{{complaint.complain}}</td>
+                                        <td>{{complaint.complain_description}}</td>
+                                        <td>{{complaint.status}}</td>
+                                        <td>{{complaint.createdBy}}</td>
+                                    </tr>
+                                </tbody>
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </table>
+                </div>
+                <div>
+                    <ngx-skeleton-loader   [theme]="{'height.px': 50}" count="10" appearance="line" *ngIf="loader"></ngx-skeleton-loader>
+                </div>
+            </div>
+        </div> 
+    </div>
+    </div>
+</div>
+</div>
+

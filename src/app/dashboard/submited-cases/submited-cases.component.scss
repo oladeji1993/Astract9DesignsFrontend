@@ -1,0 +1,100 @@
+.content-container{
+    width:95%;
+    margin: auto;
+    margin-top:3%;
+    
+}
+
+.card-header{
+    background-color: #01A756;
+    color:#fff;
+    font-size: 20px;
+}
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    text-align: left;
+    padding: 10px;
+    font-size: 110%;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #FFF5F5;
+  }
+
+  td{
+    color:#7A7A7A
+}
+
+thead td{
+    color: #fff !important;
+}
+
+.editBtn{
+    border: none;
+    background-color:#01A756 ;
+    color:#fff;
+    border-radius: 3px;
+    padding:3px 7px;
+}
+
+.btn-2{
+    border: none;
+    background-color:#D14642 ;
+    color:#fff;
+    border-radius: 3px;
+    margin-left:10px;
+    padding:3px 7px;
+}
+
+.operations{
+    display: flex;
+    justify-content: space-between;
+}
+
+.verify{
+    margin-left:10px;
+}
+
+#filter{
+    border: 1px solid gray;
+    padding:0px 20px;
+    outline: none;
+}
+
+.excel{
+    margin-right:15px;
+}
+
+.double-btn{
+    display: flex;
+}
+
+
+.Action-btn{
+    margin-bottom: 10px;
+}
+
+.new_size{
+    margin-right:10px;
+    color:#fff;
+   border:none;
+   background-color: #01A756; 
+   padding:7px;
+   border-radius: 6px;
+}
+
+.add_complaint{
+    margin-right:10px;
+    color:#fff;
+   border:none;
+   padding:7px;
+   background-color: #01A756; 
+   border-radius: 6px; 
+}

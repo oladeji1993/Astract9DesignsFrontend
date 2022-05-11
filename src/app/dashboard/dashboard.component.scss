@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@700&display=swap');
+
+// *{
+//     background-color: #E5E5E5;
+// }
+
+:host{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.nav{
+    width:260px;
+    background-color: #01A756;;
+    border: none;
+}
+
+.action{
+    width:80px !important;
+    // background-color: #fff;
+    border: none;
+}
+
+#nav-header{
+    margin-right: 0% !important;
+}
+
+mat-drawer-container{
+    height:100%;
+}
+
+
+
+#body{
+    overflow-y: scroll;
+    height:calc(100vh - 60px);
+}
+
+
+
+@media (max-width:800px) {
+    .nav{
+        display:none
+    }
+
+ 
+}
